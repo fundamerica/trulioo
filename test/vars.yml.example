@@ -1,0 +1,46 @@
+# This is an example file to load ENV elements for tests. Copy and rename this
+# file to `vars.yml` to use.
+#
+# `transaction_id` should be the ID of a valid transaction record where the
+# status has matched.
+#
+# `verification_params` can take in different countries to test.
+
+country: US
+transaction_id:
+trulioo_username:
+trulioo_password:
+verification_params:
+  US:
+    CountryCode: US
+    DataFields:
+      PersonInfo:
+        FirstGivenName: Justin
+        MiddleName: Mark
+        FirstSurName: Williams
+        DayOfBirth: 4
+        MonthOfBirth: 8
+        YearOfBirth: 1988
+      Location:
+        BuildingNumber: 420
+        StreetName: 9th
+        StreetType: Avenue
+        UnitNumber: 18
+        City: New York
+        StateProvinceCode: NY
+        PostalCode: 10001
+      Communication:
+        Telephone: 8026609697
+      DriverLicence:
+        Number: 0812319884104
+      NationalIds: 
+        -
+          Number: 000568791
+          Type: socialservice
+      Passport:
+        Mrz1: P<USAWILLIAMS<<JUSTIN<<<<<<<<<<<<<<<<<<<<<<<
+        Mrz2: 99003853<1USA1101018M1207046110101111<<<<<94
+        Number: S85416687
+        DayOfExpiry: 5,
+        MonthOfExpiry: 1,
+        YearOfExpiry: 2021

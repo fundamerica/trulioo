@@ -7,7 +7,7 @@ module Trulioo
     class Verifications < Trulioo::API::Base
       def transaction_record(transaction_id, option = nil)
         action = "transactionrecord/#{transaction_id}"
-        action += "/#{option}" if option.try(:to_sym).in?(options)
+        action += "/#{option}" if option && option.to_sym.in?(options)
         get(action, auth: true)
       end
 
