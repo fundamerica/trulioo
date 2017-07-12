@@ -1,0 +1,21 @@
+PATH
+  remote: .
+  specs:
+    trulioo (0.1.0)
+      httparty
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    httparty (0.15.5)
+      multi_xml (>= 0.5.2)
+    multi_xml (0.6.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  trulioo!
+
+BUNDLED WITH
+   1.15.1
