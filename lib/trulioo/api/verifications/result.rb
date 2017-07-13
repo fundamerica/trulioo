@@ -17,7 +17,7 @@ module Trulioo
         def initialize(response)
           @code = response.code
           @response = response
-          parse_response
+          parse_response if code == 200
         end
 
         private
