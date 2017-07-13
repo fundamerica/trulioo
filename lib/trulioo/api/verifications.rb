@@ -6,8 +6,22 @@ module Trulioo
     # accesses the Normalized API.
     class Verifications < Trulioo::API::Base
       class << self
-        def snake_case(name)
-          name.gsub(/([a-z\d])([A-Z])/, '\1_\2').downcase
+        def format_value(value)
+          if value.match?(/true/i)
+            true
+          elsif value.match?(/false/i)
+            false
+          else
+            value
+          end
+        end
+
+        def parse_fields(fields, value_field)
+          return [] unless fields
+          fields.each_with_object({}) do |field, h|
+            key = field['FieldName'].gsub(/([a-z\d])([A-Z])/, '\1_\2').downcase
+            h[key] = format_value(field[value_field])
+          end
         end
       end
 

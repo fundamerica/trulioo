@@ -17,24 +17,17 @@ module Trulioo
         def initialize(response)
           @code = response.code
           @response = response
-          parse_response if code == 200
+          parse_response(response.parsed_response) if code == 200
         end
 
         private
 
-        def parse_response
-          r = response.parsed_response
+        def parse_response(r)
           @transaction_id = r['TransactionID']
           @uploaded_at = Time.parse(r['UploadedDt'])
-          @input_fields = parse_fields(r['InputFields']) if r['InputFields']
+          @input_fields = Verifications.parse_fields(r['InputFields'], 'Value')
           @errors = r['Errors']
           @transaction_record = TransactionRecord.new(r['Record'])
-        end
-
-        def parse_fields(fields)
-          fields.each_with_object({}) do |field, h|
-            h[Verifications.snake_case field['FieldName']] = field['Value']
-          end
         end
       end
     end
