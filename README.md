@@ -97,6 +97,17 @@ the key `AcceptTruliooTermsAndConditions` as it is already included.
 client.verifications.verify({ CountryCode: 'US', ... })
 ```
 
+#### Result
+
+These two endpoints return a `Trulioo::API::Verifications::Result` instance.
+This makes it easy to navigate through the response. For example, use the
+following to get the TransactionRecordID:
+
+```ruby
+result = client.verifications.verify({ ... })
+result.transaction_record.id
+```
+
 ### Configuration
 
 Information regarding how your account is configured.
