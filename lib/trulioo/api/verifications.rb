@@ -7,9 +7,9 @@ module Trulioo
     class Verifications < Trulioo::API::Base
       class << self
         def format_value(value)
-          if value.match?(/true/i)
+          if /true/i.match value
             true
-          elsif value.match?(/false/i)
+          elsif /false/i.match value
             false
           else
             value
